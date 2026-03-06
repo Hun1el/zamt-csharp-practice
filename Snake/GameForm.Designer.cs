@@ -132,7 +132,7 @@ namespace Snake
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 20);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Snake v14.56.38";
+            this.label6.Text = "Snake v0.3.1";
             this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label7
