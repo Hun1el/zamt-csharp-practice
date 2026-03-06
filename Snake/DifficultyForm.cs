@@ -54,6 +54,16 @@ namespace Snake
                     radioButton3.Checked = true;
                     break;
             }
+
+            int soundVolume = Properties.Settings.Default.SoundVolume;
+            if (soundVolume == 0)
+            {
+                radioButton4.Checked = true;
+            }
+            else if (soundVolume == 1)
+            {
+                radioButton5.Checked = true;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

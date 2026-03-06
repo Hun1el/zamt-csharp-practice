@@ -5,15 +5,16 @@ using System.Windows.Forms;
 
 namespace Snake
 {
+    // Форма для игры
     public partial class GameForm : Form
     {
-        private int difficulty;
-        private GameLogic gameLogic;
-        private Timer gameTimer;
-        private int cellsize = 20;
-        private bool isPaused;
+        private int difficulty; // Уровень сложности
+        private GameLogic gameLogic; // Логика игры
+        private Timer gameTimer; // Таймер
+        private int cellsize = 40; // Размер одной клетки в пикселях
+        private bool isPaused; // Флаг паузы
 
-        private SoundManager soundManager;
+        private SoundManager soundManager; // Звук
 
         public GameForm(int difficulty)
         {
@@ -26,6 +27,8 @@ namespace Snake
             soundManager = new SoundManager();
 
             gameTimer = new Timer();
+
+            // Настройка таймера в зависимости от сложности
             switch (difficulty)
             {
                 case 1:
@@ -33,26 +36,30 @@ namespace Snake
                     label1.Text = "Сложность: Легкая";
                     break;
                 case 2:
-                    gameTimer.Interval = 90;
+                    gameTimer.Interval = 120;
                     label1.Text = "Сложность: Средняя";
                     break;
                 case 3:
-                    gameTimer.Interval = 45;
+                    gameTimer.Interval = 90;
                     label1.Text = "Сложность: Сложная";
                     break;
             }
+
+            // Cобытие для обновления игры
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Start();
 
             isPaused = false;
-            this.KeyDown += GameForm_KeyDown;
+            this.KeyDown += GameForm_KeyDown; // Обработка нажатий клавиш
         }
 
         private void GameForm_Load(object sender, EventArgs e)
         {
+            // Игровое поле
             pictureBox1.Paint += PictureBox1_Paint;
         }
 
+        // Остановка таймера при закрытии
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             if (gameTimer != null)
@@ -63,57 +70,61 @@ namespace Snake
             base.OnFormClosing(e);
         }
 
+        // Получение камней в зависимости от сложности
         private int GetNumberOfRocksForDifficulty(int difficulty)
         {
             switch (difficulty)
             {
                 case 1:
-                    return 0;
+                    return 2;
                 case 2:
-                    return 7;
+                    return 9;
                 case 3:
-                    return 15;
+                    return 12;
                 default:
                     return 0;
             }
         }
 
+        // Обновление рекорда
         private void MaxScoreGame()
         {
             int maxscore = Properties.Settings.Default.MaxScore;
             label4.Text = $"Рекорд: {maxscore}";
         }
 
+        // Таймер для обновления игры
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             int previousScore = gameLogic.Score;
             bool isAlive = gameLogic.UpdateGame();
             label2.Text = $"Счет: {gameLogic.Score}";
 
+            // Проверяем, жива ли змея
             if (!isAlive)
             {
-                gameTimer.Stop();
+                gameTimer.Stop(); // Останавливаем игру
+                soundManager.PlayGameOverSound(); // Остановка звука
 
-                soundManager.PlayGameOverSound();
-
+                // Проверяем новый рекорд
                 int currentscore = gameLogic.Score;
-
                 if (currentscore > Properties.Settings.Default.MaxScore)
                 {
-                    Properties.Settings.Default.MaxScore = currentscore;
+                    Properties.Settings.Default.MaxScore = currentscore; // Обновление счета
                     Properties.Settings.Default.Save();
                 }
                 ShowGameOverForm(currentscore);
             }
             else if (gameLogic.Score > previousScore)
             {
-                soundManager.PlayEatSound();
+                soundManager.PlayEatSound(); // Звук при съедании еды
             }
 
-            pictureBox1.Invalidate();
-            MaxScoreGame();
+            pictureBox1.Invalidate(); // Перерисовка поля
+            MaxScoreGame(); // Обновление рекорда
         }
 
+        // Форма проигрыша
         private void ShowGameOverForm(int Score)
         {
             GameOverForm gameOverForm = new GameOverForm();
@@ -130,6 +141,7 @@ namespace Snake
             }
         }
 
+        // Рестарт игры
         private void RestartGame()
         {
             gameTimer.Stop();
@@ -140,8 +152,10 @@ namespace Snake
             gameTimer.Start();
         }
 
+        // Обработка нажатий
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
         {
+            // Включить паузу
             if (e.KeyCode == Keys.Space)
             {
                 TogglePause();
@@ -150,6 +164,7 @@ namespace Snake
             {
                 string newDirection = gameLogic.Snake.Movement.Direction;
 
+                // Изменение направления движения
                 if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up) newDirection = "Up";
                 if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down) newDirection = "Down";
                 if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left) newDirection = "Left";
@@ -159,6 +174,7 @@ namespace Snake
             }
         }
 
+        // Переключение паузы
         private void TogglePause()
         {
             if (isPaused)
@@ -170,7 +186,7 @@ namespace Snake
             else
             {
                 gameTimer.Stop();
-                label1.Text = "Игра на паузе";
+                label1.Text = "Игра на паузе"; // Обновления label
                 PauseForm pauseForm = new PauseForm();
                 pauseForm.StartPosition = FormStartPosition.CenterParent;
                 if (pauseForm.ShowDialog() == DialogResult.OK)
@@ -186,11 +202,15 @@ namespace Snake
             }
         }
 
+        // Отрисовка элементов на игровом поле
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            int cellSize = 20;
 
+            // Размер
+            int cellSize = 40;
+
+            // Отрисовка головы змеи, тела, еды и камней
             Point head = gameLogic.Snake.Body[0];
             Image headImage;
             switch (gameLogic.Snake.Movement.Direction)
@@ -259,6 +279,7 @@ namespace Snake
             }
         }
 
+        // Обновление сложности в label
         private void UpdateLabelForDifficulty()
         {
             if (!isPaused)

@@ -48,10 +48,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\snake.ico</ApplicationIcon>
+    <ApplicationIcon>snake.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -163,17 +165,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\snake.ico" />
-    <None Include="Resources\space %281%291.png" />
+    <None Include="Resources\tail_up.png" />
+    <None Include="Resources\tail_right.png" />
+    <None Include="Resources\tail_left.png" />
+    <None Include="Resources\tail_down.png" />
+    <None Include="snake.ico" />
     <None Include="Resources\space %281%29.png" />
     <None Include="Resources\letter-a.png" />
     <None Include="Resources\letter-w.png" />
     <None Include="Resources\letter-s.png" />
     <None Include="Resources\letter-d.png" />
     <None Include="Resources\up-arrow.png" />
-    <None Include="Resources\tail_up.png" />
-    <None Include="Resources\tail_right.png" />
-    <None Include="Resources\tail_left.png" />
-    <None Include="Resources\tail_down.png" />
     <None Include="Resources\head_up.png" />
     <None Include="Resources\head_right.png" />
     <None Include="Resources\head_left.png" />
