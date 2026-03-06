@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -47,9 +47,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\snake.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,6 +79,12 @@
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GameLogic.cs" />
+    <Compile Include="GameOverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameOverForm.Designer.cs">
+      <DependentUpon>GameOverForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InstructionsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,11 +119,17 @@
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GameOverForm.resx">
+      <DependentUpon>GameOverForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InstructionsForm.resx">
       <DependentUpon>InstructionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PauseForm.resx">
+      <DependentUpon>PauseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -146,6 +162,34 @@
     <None Include="Resources\info.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\snake.ico" />
+    <None Include="Resources\space %281%291.png" />
+    <None Include="Resources\space %281%29.png" />
+    <None Include="Resources\letter-a.png" />
+    <None Include="Resources\letter-w.png" />
+    <None Include="Resources\letter-s.png" />
+    <None Include="Resources\letter-d.png" />
+    <None Include="Resources\up-arrow.png" />
+    <None Include="Resources\tail_up.png" />
+    <None Include="Resources\tail_right.png" />
+    <None Include="Resources\tail_left.png" />
+    <None Include="Resources\tail_down.png" />
+    <None Include="Resources\head_up.png" />
+    <None Include="Resources\head_right.png" />
+    <None Include="Resources\head_left.png" />
+    <None Include="Resources\head_down.png" />
+    <None Include="Resources\rocks.png" />
+    <None Include="Resources\back1.png" />
+    <None Include="Resources\apple.png" />
+    <None Include="Resources\body_bl.png" />
+    <None Include="Resources\body_br.png" />
+    <None Include="Resources\body_horizontal.png" />
+    <None Include="Resources\body_tl.png" />
+    <None Include="Resources\body_tr.png" />
+    <None Include="Resources\body_vertical.png" />
+    <None Include="Resources\arrow-down.png" />
+    <None Include="Resources\arrow-right.png" />
+    <None Include="Resources\arrow-left.png" />
     <Content Include="Resources\eat.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -176,5 +220,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
