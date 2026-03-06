@@ -27,7 +27,6 @@ namespace Snake
 
         public bool UpdateGame()
         {
-            // Проверка: съела ли змейка еду
             bool grow = Snake.Body[0] == Food.Position;
             Snake.Move(grow);
 
@@ -37,13 +36,12 @@ namespace Snake
                 Food.NewGenerate(width, height, Snake.Body);
             }
 
-            // Проверяем столкновения
             if (Snake.CheckSelfCollision() || Snake.CheckWallCollision())
             {
-                return false; // Игра окончена
+                return false;
             }
 
-            return true; // Игра продолжается
+            return true;
         }
     }
 }

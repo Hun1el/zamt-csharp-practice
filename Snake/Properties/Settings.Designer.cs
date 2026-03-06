@@ -34,5 +34,41 @@ namespace Snake.Properties {
                 this["SelectedDifficulty"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int MaxScore {
+            get {
+                return ((int)(this["MaxScore"]));
+            }
+            set {
+                this["MaxScore"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public int GameSpeed {
+            get {
+                return ((int)(this["GameSpeed"]));
+            }
+            set {
+                this["GameSpeed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SoundVolume {
+            get {
+                return ((int)(this["SoundVolume"]));
+            }
+            set {
+                this["SoundVolume"] = value;
+            }
+        }
     }
 }

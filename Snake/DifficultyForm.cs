@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Snake
@@ -13,11 +6,13 @@ namespace Snake
     public partial class DifficultyForm : Form
     {
         private int selectedDifficulty;
+        private SoundManager soundManager;
 
         public DifficultyForm()
         {
             InitializeComponent();
-            LoadSelectedDifficulty();
+            LoadSettings();
+            soundManager = new SoundManager();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -44,32 +39,73 @@ namespace Snake
             }
         }
 
-        private void LoadSelectedDifficulty()
+        private void LoadSettings()
         {
-            if (Properties.Settings.Default.SelectedDifficulty > 0)
+            selectedDifficulty = Properties.Settings.Default.SelectedDifficulty;
+            switch (selectedDifficulty)
             {
-                selectedDifficulty = Properties.Settings.Default.SelectedDifficulty;
-                switch (selectedDifficulty)
-                {
-                    case 1:
-                        radioButton1.Checked = true;
-                        break;
-                    case 2:
-                        radioButton2.Checked = true;
-                        break;
-                    case 3:
-                        radioButton3.Checked = true;
-                        break;
-                }
+                case 1:
+                    radioButton1.Checked = true;
+                    break;
+                case 2:
+                    radioButton2.Checked = true;
+                    break;
+                case 3:
+                    radioButton3.Checked = true;
+                    break;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.SelectedDifficulty = selectedDifficulty;
-            Properties.Settings.Default.Save();
-            MainForm.SelectedDifficulty = selectedDifficulty;
-            this.Close();
+            if (DialogResult.Yes == MessageBox.Show("Применить настройки?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk))
+            {
+                Properties.Settings.Default.SelectedDifficulty = selectedDifficulty;
+
+                Properties.Settings.Default.Save();
+
+                MainForm.SelectedDifficulty = selectedDifficulty;
+                Close();
+            }
+            else
+            {
+                Close();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Сбросить настройки по умолчанию?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk))
+            {
+                Properties.Settings.Default.SelectedDifficulty = 1;
+                Properties.Settings.Default.GameSpeed = 20;
+                Properties.Settings.Default.SoundVolume = 1;
+                Properties.Settings.Default.MaxScore = 0;
+                Properties.Settings.Default.Save();
+
+                LoadSettings();
+
+                MainForm.SelectedDifficulty = 1;
+                Close();
+            }
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton4.Checked)
+            {
+                Properties.Settings.Default.SoundVolume = 0;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton5.Checked)
+            {
+                Properties.Settings.Default.SoundVolume = 1;
+                Properties.Settings.Default.Save();
+            }
         }
     }
 }
