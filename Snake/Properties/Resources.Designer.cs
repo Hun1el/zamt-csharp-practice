@@ -313,16 +313,6 @@ namespace Snake.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap space__1_ {
-            get {
-                object obj = ResourceManager.GetObject("space (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap up_arrow {
             get {
                 object obj = ResourceManager.GetObject("up_arrow", resourceCulture);

@@ -40,6 +40,10 @@
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +62,7 @@
             // 
             this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton1.ForeColor = System.Drawing.Color.LightGreen;
-            this.radioButton1.Location = new System.Drawing.Point(223, 143);
+            this.radioButton1.Location = new System.Drawing.Point(5, 36);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(123, 41);
             this.radioButton1.TabIndex = 4;
@@ -72,7 +76,7 @@
             this.radioButton2.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton2.ForeColor = System.Drawing.Color.PaleGoldenrod;
-            this.radioButton2.Location = new System.Drawing.Point(352, 143);
+            this.radioButton2.Location = new System.Drawing.Point(134, 36);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(145, 41);
             this.radioButton2.TabIndex = 5;
@@ -85,7 +89,7 @@
             // 
             this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton3.ForeColor = System.Drawing.Color.Red;
-            this.radioButton3.Location = new System.Drawing.Point(503, 143);
+            this.radioButton3.Location = new System.Drawing.Point(285, 36);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(161, 41);
             this.radioButton3.TabIndex = 6;
@@ -148,7 +152,7 @@
             // 
             this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton4.ForeColor = System.Drawing.Color.Red;
-            this.radioButton4.Location = new System.Drawing.Point(223, 241);
+            this.radioButton4.Location = new System.Drawing.Point(5, 28);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(98, 41);
             this.radioButton4.TabIndex = 13;
@@ -161,7 +165,7 @@
             // 
             this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.radioButton5.ForeColor = System.Drawing.Color.PaleGreen;
-            this.radioButton5.Location = new System.Drawing.Point(352, 241);
+            this.radioButton5.Location = new System.Drawing.Point(134, 28);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(145, 41);
             this.radioButton5.TabIndex = 14;
@@ -179,8 +183,28 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 20);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Snake v0.3.1";
+            this.label4.Text = "Snake v0.4.0";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.panel1.Controls.Add(this.radioButton5);
+            this.panel1.Controls.Add(this.radioButton4);
+            this.panel1.Location = new System.Drawing.Point(223, 213);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(449, 100);
+            this.panel1.TabIndex = 16;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.radioButton3);
+            this.panel2.Controls.Add(this.radioButton2);
+            this.panel2.Controls.Add(this.radioButton1);
+            this.panel2.Location = new System.Drawing.Point(223, 107);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(449, 100);
+            this.panel2.TabIndex = 17;
             // 
             // DifficultyForm
             // 
@@ -188,16 +212,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.radioButton5);
-            this.Controls.Add(this.radioButton4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -205,6 +226,8 @@
             this.Name = "DifficultyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Difficulty";
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -223,5 +246,7 @@
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
