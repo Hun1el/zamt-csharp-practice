@@ -183,7 +183,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 20);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Snake v0.4.0";
+            this.label4.Text = "Snake v0.5.0";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // panel1

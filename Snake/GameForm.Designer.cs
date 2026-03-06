@@ -120,7 +120,7 @@ namespace Snake
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 20);
             this.label6.TabIndex = 6;
-            this.label6.Text = "Snake v0.4.0";
+            this.label6.Text = "Snake v0.5.0";
             this.label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // label7
