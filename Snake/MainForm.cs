@@ -40,7 +40,10 @@ namespace Snake
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Close();
+            if (DialogResult.Yes == MessageBox.Show("Вы точно хотите выйти?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            {
+                Close();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

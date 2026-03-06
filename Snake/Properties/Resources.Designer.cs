@@ -63,9 +63,9 @@ namespace Snake.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap power_switch {
+        internal static System.Drawing.Bitmap info {
             get {
-                object obj = ResourceManager.GetObject("power-switch", resourceCulture);
+                object obj = ResourceManager.GetObject("info", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Snake.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap power_switch1 {
+        internal static System.Drawing.Bitmap play_button {
             get {
-                object obj = ResourceManager.GetObject("power-switch1", resourceCulture);
+                object obj = ResourceManager.GetObject("play-button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +86,16 @@ namespace Snake.Properties {
         internal static System.Drawing.Bitmap power_switch11 {
             get {
                 object obj = ResourceManager.GetObject("power-switch11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap setting2 {
+            get {
+                object obj = ResourceManager.GetObject("setting2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
