@@ -39,7 +39,7 @@ namespace Snake
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ошибка звука: {ex.Message}");
+                MessageBox.Show($"Ошибка звука: {ex.Message}");
             }
         }
 

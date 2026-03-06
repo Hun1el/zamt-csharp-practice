@@ -30,11 +30,9 @@ namespace Snake
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int difficulty = SelectedDifficulty;
             GameForm gameForm = new GameForm(SelectedDifficulty);
             this.Visible = false;
             gameForm.ShowDialog();
-            gameForm.Dispose();
             this.Visible = true;
         }
 
